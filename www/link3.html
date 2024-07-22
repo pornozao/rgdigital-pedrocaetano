@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Template Tab</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS PERSONALIZADO PARA MENU -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Ícones Material Design -->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <!-- Ícones do Remix Icon -->
+    <link rel="stylesheet" href="css/remixicon/remixicon.css">
+    <link rel="stylesheet" href="sytle.css">
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- TAB BAR -->
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner display-flex">
+                    <a href="/index/" class="tab-link link active" data-transition="f7-push">
+                        <i class="ri-account-box-fill"></i>
+                        <span></span>
+                    </a>
+                    <a href="/link2/" class="tab-link link" data-transition="f7-push">
+                        <i class="ri-fingerprint-fill"></i>
+                        <span></span>
+                    </a>
+                    <a href="/link3/" class="tab-link link" data-transition="f7-push">
+                        <i class="ri-qr-code-line"></i>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Initial Page, "data-name" contains page name -->
+            <div data-name="index link2 link3" class="page color-theme-blue">
+                <!-- Top Navbar -->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="left">
+                            <a href="#" class="tab-link link close-link">Fechar</a>
+                        </div>
+                        <div class="title">QR Code</div>
+                        <div class="right">
+                            <a href="/index/" class="tab-link link">
+                                <i class="ri-more-2-line"></i>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navbar-divider"></div> <!-- Adiciona o traço delimitador -->
+                </div>
+                <!-- Scrollable page content -->
+                <div class="page-content">
+                    <div class="update-info" id="update-info" style="padding-bottom: 0;"></div>
+                    <div class="center" style="margin-top: 0;">
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="block" style="margin: 120px 0 0 0;">
+                        <div class="center">
+                        <img src="img/qr-code-plus.png" width="75%"></div>
+
+                        
+                        <!-- Conteúdo adicional -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="teste.js"></script>
+
+    <!-- Path to Framework7 Library Bundle JS -->
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <!-- Roteamento do app -->
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+
+
+    <!-- JavaScript para atualizar data e hora -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var timerId;
+
+            // Função para atualizar a data e hora
+            function updateDateTime() {
+                var now = new Date();
+                var formattedDate = now.toLocaleDateString('pt-BR');
+                var formattedTime = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+                var updateInfos = document.querySelectorAll('.update-info');
+                updateInfos.forEach(function(updateInfo) {
+                    updateInfo.innerHTML = `<i class="ri-checkbox-circle-fill" style="font-size: 30px;"></i> Atualizado em ${formattedDate} às ${formattedTime}`;
+                });
+            }
+
+            // Chamando a função para a primeira atualização
+            updateDateTime();
+
+            // Configurando um temporizador para atualizar a cada minuto
+            timerId = setInterval(updateDateTime, 60000); // 60000 milissegundos = 1 minuto
+
+            // Adicionando evento de mudança de página
+            document.addEventListener('page:init', function (e) {
+                // Atualize a data e hora quando a página é exibida
+                updateDateTime();
+            });
+            
+        });
+
+        
+    </script>
+
+
+
+</body>
+
+</html>
+

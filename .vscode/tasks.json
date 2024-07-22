@@ -1,0 +1,20 @@
+// No arquivo tasks.json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "startServer",
+            "type": "shell",
+            "command": "npx live-server --port=8000",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

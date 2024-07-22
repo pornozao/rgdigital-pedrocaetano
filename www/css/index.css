@@ -1,0 +1,200 @@
+:root {
+    --branco: #ffffff;
+    --gelo: #b2b2b2;
+    --azul: #0D51A1;
+    --preto: #000000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0; /* Remover margens padrão */
+    padding: 0; /* Remover preenchimentos padrão */
+    background:var(--branco); /* Defina a cor de fundo desejada */
+}
+
+
+.toolbar {
+    height: 80px;
+}
+
+.tab-link {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.toolbar-inner {
+    background: var(--branco);
+}
+
+.toolbar-inner .link {
+    flex: 1;
+    height: 80px;
+    line-height: 25px;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+.toolbar-inner .link:not(.active) {
+    color: var(--gelo);
+    font-weight: normal;
+}
+
+.toolbar-inner > .link i {
+    font-size: 28px;
+}
+
+.navbar {
+    background: var(--branco); /* Define o fundo branco */
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between elements */
+    position: relative;
+    height: 60px;
+}
+
+.navbar-inner .left,
+.navbar-inner .right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.navbar-inner .left {
+    flex: 1;
+}
+
+.navbar-inner .right {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.navbar-inner .left a,
+.navbar-inner .right a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    font-family: "Roboto", sans-serif; /* Adicionado para garantir que todas as palavras usem a fonte Roboto */
+}
+
+.navbar-inner .left .close-link {
+    font-size: 18px; /* Defina o tamanho da fonte conforme desejado */
+    font-weight: bold; /* Adiciona negrito ao texto */
+    color: var(--azul); /* Adiciona cor azul */
+}
+
+.navbar-inner .right a i {
+    font-size: 24px;
+}
+
+.navbar-inner .title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: 600; /* Roboto Medium */
+    font-family: "Roboto", sans-serif; /* Adicionado para garantir que todas as palavras usem a fonte Roboto */
+    margin: 0;
+}
+
+.navbar-divider {
+    width: 100%;
+    height: 1px; /* Altura do traço */
+    background-color: var(--branco); /* Cor do traço */
+    position: absolute; /* Para posicionar o traço no topo da navbar */
+    top: 60px; /* Ajusta para estar no final da navbar */
+}
+
+.update-date-time {
+    text-align: center;
+    font-size: 14px;
+    color: var(--preto);
+    font-family: "Roboto", sans-serif;
+    padding: 30px 0; /* Espaçamento vertical */
+    background: var(--branco); /* Fundo branco */
+    border-bottom: 1px solid var(--branco); /* Adiciona uma linha na parte inferior */
+}
+
+.update-info i{
+    font-size: 24px;
+    display: inline-block; /* Faz o ícone e o texto ficarem na mesma linha */
+    vertical-align: middle; /* Alinha o ícone verticalmente com o texto */
+    margin-right: 0px; /* Adiciona um espaçamento à direita do ícone */
+    color: greenyellow;
+}
+
+.navbar-divider {
+    width: 100%;
+    height: 1px; /* Altura do traço */
+    background-color: #e0e0e0; /* Cor do traço */
+}
+
+.update-info {
+    text-align: center;
+    font-size: 14px;
+    color: var(--preto);
+    font-family: "Roboto", sans-serif;
+    padding: 30px 0; /* Espaçamento vertical */
+    background: var(--branco); /* Fundo branco */
+    border-bottom: 1px solid var(--branco); /* Adiciona uma linha na parte inferior */
+}
+
+.update-info i {
+    color: #8ad75d; 
+    margin-right: 5px; /* Adiciona um espaçamento à direita do ícone */
+}
+
+.page-content{
+    background: var(--branco);
+}
+
+.update-date-time{
+    text-align: center;
+    color: #000;
+}
+
+.text-black {
+    color: black; /* Define a cor do texto como preto */
+}
+
+.update-text {
+    font-size: 30px; /* Ajuste este valor conforme necessário */
+    font-weight: bold; /* Opcional: para deixar o texto em negrito */
+    color: black; /* Opcional: para mudar a cor do texto */
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-container {
+    width: 80%;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    height: 4px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #0D51A1; /* Azul escuro */
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    animation: loadProgress 10s linear infinite;
+}
+
+@keyframes loadProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
